@@ -8,4 +8,4 @@ Query SEC EDGAR XBRL facts (10-K/10-Q financials) from Emacs via the data.sec.go
 
 Scope: numeric XBRL JSON APIs only. Inline-XBRL (narrative, footnotes) is not implemented.
 
-Tests: `XBRL_LIVE=1 emacs -Q --batch -L . -l xbrl-test.el -f ert-run-tests-batch-and-exit`
+Tests: `XBRL_LIVE=1 emacs -Q --batch -L src -l test/xbrl-test.el -f ert-run-tests-batch-and-exit`

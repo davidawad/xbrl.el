@@ -1,4 +1,4 @@
-;;; xbrl.el --- SEC XBRL financial facts for Emacs -*- lexical-binding: t; -*-
+;;; xbrl.el --- SEC XBRL financial facts -*- lexical-binding: t; -*-
 
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "29.1"))
@@ -44,13 +44,13 @@
   "Fetch URL and return parsed JSON as hash-table-free plist/list data."
   (let ((url-request-extra-headers `(("User-Agent" . ,xbrl-user-agent)))
         (buf (url-retrieve-synchronously url t t 30)))
-    (unless buf (error "xbrl: no response from %s" url))
+    (unless buf (error "XBRL: no response from %s" url))
     (with-current-buffer buf
       (unwind-protect
           (progn
             (goto-char (point-min))
             (unless (looking-at "HTTP/[0-9.]+ 200")
-              (error "xbrl: %s -> %s" url
+              (error "XBRL: %s -> %s" url
                      (buffer-substring (point) (line-end-position))))
             (re-search-forward "\r?\n\r?\n")
             (json-parse-buffer :object-type 'plist :array-type 'list
@@ -62,6 +62,7 @@
 (defvar xbrl--tickers nil "Cached alist of (TICKER CIK TITLE).")
 
 (defun xbrl--load-tickers ()
+  "Return the cached ticker table, fetching it from SEC on first use."
   (or xbrl--tickers
       (setq xbrl--tickers
             (let ((raw (xbrl--get "https://www.sec.gov/files/company_tickers.json")))
@@ -76,7 +77,7 @@
                    (string-match-p "\\`[0-9]+\\'" ticker-or-cik))
                (string-to-number (format "%s" ticker-or-cik))
              (or (cadr (assoc (upcase ticker-or-cik) (xbrl--load-tickers)))
-                 (error "xbrl: unknown ticker %s" ticker-or-cik)))))
+                 (error "XBRL: unknown ticker %s" ticker-or-cik)))))
     (format "CIK%010d" n)))
 
 ;;;; Core queries
@@ -86,13 +87,14 @@
   (xbrl--get (format "%s/companyfacts/%s.json" xbrl--api (xbrl-cik ticker))))
 
 (defun xbrl-concept-raw (ticker taxonomy concept)
+  "Raw companyconcept payload for TICKER, TAXONOMY and CONCEPT."
   (xbrl--get (format "%s/companyconcept/%s/%s/%s.json"
                      xbrl--api (xbrl-cik ticker) taxonomy concept)))
 
 (defun xbrl-concept (ticker taxonomy concept &optional unit)
   "Facts for CONCEPT of TICKER as a list of plists.
 Each has :val :start :end :fy :fp :form :filed :accn :unit.  UNIT defaults
-to the first unit present (usually USD)."
+to the first unit present (usually USD).  TAXONOMY is e.g. \"us-gaap\"."
   (let* ((units (plist-get (xbrl-concept-raw ticker taxonomy concept) :units))
          (key (if unit (intern (concat ":" unit)) (car units)))
          (rows (plist-get units key)))
@@ -116,7 +118,8 @@ Returns facts sorted by :fy ascending.  TAXONOMY defaults to us-gaap."
           (lambda (a b) (string< (plist-get a :end) (plist-get b :end))))))
 
 (defun xbrl-frame (taxonomy concept unit period)
-  "CONCEPT across all filers for PERIOD (e.g. \"CY2023\", \"CY2023Q4I\")."
+  "CONCEPT in TAXONOMY across all filers, in UNIT, for PERIOD.
+PERIOD looks like \"CY2023\" or \"CY2023Q4I\"."
   (plist-get (xbrl--get (format "%s/frames/%s/%s/%s/%s.json"
                                 xbrl--api taxonomy concept unit period))
              :data))
@@ -131,12 +134,15 @@ Returns facts sorted by :fy ascending.  TAXONOMY defaults to us-gaap."
 ;;;; Interactive
 
 (defun xbrl--read-ticker ()
+  "Prompt for a ticker with completion over SEC's ticker table."
   (completing-read "Ticker: " (mapcar #'car (xbrl--load-tickers)) nil nil))
 
 (defun xbrl--fmt (n)
+  "Format N with thousands separators; pass non-numbers through."
   (if (numberp n) (format "%s" (xbrl--commas n)) (format "%s" n)))
 
 (defun xbrl--commas (n)
+  "Return number N as a string with thousands separators."
   (let ((s (number-to-string n)))
     (while (string-match "\\`\\(-?[0-9]+\\)\\([0-9]\\{3\\}\\)" s)
       (setq s (replace-match "\\1,\\2" t nil s)))
@@ -169,12 +175,13 @@ Returns facts sorted by :fy ascending.  TAXONOMY defaults to us-gaap."
       (pop-to-buffer (current-buffer)))))
 
 (defun xbrl--sort-val (a b)
+  "Return non-nil if table entry A's value column precedes B's."
   (< (string-to-number (replace-regexp-in-string "," "" (aref (cadr a) 1)))
      (string-to-number (replace-regexp-in-string "," "" (aref (cadr b) 1)))))
 
 ;;;###autoload
 (defun xbrl-show-facts (ticker)
-  "Browse every us-gaap concept TICKER reports; RET shows annual values."
+  "Browse every us-gaap concept TICKER reports, then show its annual values."
   (interactive (list (xbrl--read-ticker)))
   (let ((names (xbrl-concept-names ticker)))
     (xbrl-show-concept ticker (completing-read "Concept: " names nil t))))
