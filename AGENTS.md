@@ -11,13 +11,18 @@ sibling package `edgar.el`, which requires this one. Planned: inline-XBRL
 ## For agents
 
 - Read `README.md` first.
-- Source is `src/xbrl.el`; tests are ERT in `test/xbrl-test.el`. Offline:
-  `emacs -Q --batch -L src -l test/xbrl-test.el -f
-  ert-run-tests-batch-and-exit`. The network test is skipped unless
-  `XBRL_LIVE=1`; set `xbrl-user-agent` to a real name + email first (SEC
-  requires it; keep under 10 req/s).
-- `checkdoc-file`, `batch-byte-compile` (with `byte-compile-error-on-warn`)
-  and package-lint must all be silent before any change lands.
+- Tooling is the `swe-project-plugin-pack-elisp` cohort, declared in `Eask`
+  (install once: `eask install-deps --dev`; needs `eask-cli` from brew).
+  One command runs every gate: `eask run script check` (package-lint,
+  checkdoc, relint, ERT with undercover coverage, byte-compile). Format with
+  `eask format elisp-autofmt src/xbrl.el test/xbrl-test.el` BEFORE
+  committing. Also installed, run by hand: propcheck (property tests),
+  ecukes (e2e), codemetrics + cognitive-complexity (warn-only metrics).
+- Source is `src/xbrl.el`; tests are ERT in `test/xbrl-test.el`. Almost all
+  tests are hermetic (`xbrl--get` stubbed with canned SEC payloads); the one
+  network test needs `XBRL_LIVE=1`. Set `xbrl-user-agent` to a real name +
+  email first (SEC requires it; stay under 10 req/s). Coverage is ~80%.
+- Git-source cohort deps in `Eask` are pinned to commit SHAs.
 - `xbrl-annual` keys facts on the period END year, not the API's `:fy`
   (which is the filing's fiscal year and repeats across restated comparatives)
   and keeps the latest-filed value per period.
