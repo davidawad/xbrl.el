@@ -102,6 +102,92 @@
     (should
      (equal (xbrl-concept-names "AAPL") '("Assets" "Revenues")))))
 
+(ert-deftest xbrl-inline-facts-match-companyfacts-for-apple-2025-10k
+    ()
+  (let*
+      ((fixture
+        (with-temp-buffer
+          (insert-file-contents
+           (expand-file-name
+            "fixtures/aapl-2025-10k-inline.html"
+            (file-name-directory (locate-library "xbrl-test"))))
+          (buffer-string)))
+       (inline
+        (seq-find
+         (lambda (fact)
+           (and
+            (equal
+             (plist-get fact :name)
+             "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax")
+            (equal
+             (plist-get
+              (plist-get fact :context)
+              :end)
+             "2025-09-27")))
+         (xbrl-inline-facts fixture)))
+       (company-facts
+        (xbrl-test--with-api
+            `(("company_tickers" . ,xbrl-test--tickers)
+              ("companyconcept/CIK0000320193/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax"
+               .
+               (:units
+                (:USD
+                 ((:val
+                   416161000000
+                   :start "2024-09-29"
+                   :end "2025-09-27"
+                   :form "10-K"
+                   :filed "2025-10-31"
+                   :accn "0000320193-25-000079"))))))
+          (seq-find
+           (lambda (fact)
+             (equal (plist-get fact :accn) "0000320193-25-000079"))
+           (xbrl-concept
+            "AAPL"
+            "us-gaap"
+            "RevenueFromContractWithCustomerExcludingAssessedTax")))))
+    (should inline)
+    (should company-facts)
+    (should
+     (= (plist-get inline :value) (plist-get company-facts :val)))
+    (should (equal (plist-get inline :unit) "USD"))
+    (should
+     (equal
+      (plist-get (plist-get inline :context) :entity) "0000320193"))
+    (should
+     (equal
+      (plist-get (plist-get inline :context) :start)
+      (plist-get company-facts :start)))
+    (should
+     (equal
+      (plist-get (plist-get inline :context) :end)
+      (plist-get company-facts :end)))))
+
+(ert-deftest
+    xbrl-inline-facts-retain-dimensions-footnotes-and-continuations
+    ()
+  (let*
+      ((html
+        (concat
+         "<html><body>"
+         "<xbrli:context id='c'><xbrli:entity><xbrli:identifier>1</xbrli:identifier></xbrli:entity>"
+         "<xbrli:period><xbrli:instant>2025-12-31</xbrli:instant></xbrli:period>"
+         "<xbrli:scenario><xbrli:typedMember dimension='ex:RegionAxis'><ex:Region>West</ex:Region></xbrli:typedMember></xbrli:scenario></xbrli:context>"
+         "<ix:nonNumeric name='ex:Description' contextRef='c' continuedAt='c1' footnoteRefs='fn1'>A &amp; </ix:nonNumeric>"
+         "<ix:continuation id='c1'>B</ix:continuation>"
+         "<ix:footnote id='fn1'>Source note</ix:footnote>"
+         "</body></html>"))
+       (fact (car (xbrl-inline-facts html))))
+    (should (equal (plist-get fact :value) "A & B"))
+    (should (equal (plist-get fact :footnotes) '("Source note")))
+    (should
+     (equal
+      (plist-get (plist-get fact :context) :dimensions)
+      '(("ex:RegionAxis" . "West"))))
+    (should
+     (equal
+      (plist-get (plist-get fact :context) :instant) "2025-12-31"))))
+
 (ert-deftest xbrl-show-concept-renders-table ()
   (cl-letf (((symbol-function 'xbrl-annual)
              (lambda (&rest _)
