@@ -9,6 +9,12 @@
 
 (require 'xbrl)
 
+(defconst xbrl-test--fixture-directory
+  (expand-file-name "fixtures"
+                    (file-name-directory
+                     (or load-file-name buffer-file-name)))
+  "Directory containing the xbrl test fixtures.")
+
 (ert-deftest xbrl-cik-pads ()
   (should (equal (xbrl-cik 320193) "CIK0000320193"))
   (should (equal (xbrl-cik "320193") "CIK0000320193")))
@@ -108,9 +114,8 @@
       ((fixture
         (with-temp-buffer
           (insert-file-contents
-           (expand-file-name
-            "fixtures/aapl-2025-10k-inline.html"
-            (file-name-directory (locate-library "xbrl-test"))))
+           (expand-file-name "aapl-2025-10k-inline.html"
+                             xbrl-test--fixture-directory))
           (buffer-string)))
        (inline
         (seq-find
