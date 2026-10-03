@@ -112,9 +112,8 @@
       ((fixture
         (with-temp-buffer
           (insert-file-contents
-           (expand-file-name
-           "fixtures/aapl-2025-10k-inline.html"
-            xbrl-test--directory))
+           (expand-file-name "fixtures/aapl-2025-10k-inline.html"
+                             xbrl-test--directory))
           (buffer-string)))
        (inline
         (seq-find
