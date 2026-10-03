@@ -19,8 +19,8 @@
 ;; Interactive: `xbrl-show-concept', `xbrl-show-facts'.
 ;;
 ;; SEC requires a descriptive User-Agent; set `xbrl-user-agent'.
-;; Scope: the XBRL JSON APIs only.  Inline-XBRL narrative/footnote parsing
-;; is not implemented.
+;; Scope: the XBRL JSON APIs plus read-only extraction of Inline XBRL facts
+;; from filing HTML.  This package does not fetch filing documents.
 
 ;;; Code:
 
@@ -28,6 +28,8 @@
 (require 'json)
 (require 'seq)
 (require 'subr-x)
+(require 'cl-lib)
+(require 'dom)
 
 (defgroup xbrl nil
   "SEC XBRL access."
@@ -153,6 +155,180 @@ Returns facts sorted by :fy ascending.  TAXONOMY defaults to us-gaap."
     (sort (hash-table-values by-fy)
           (lambda (a b)
             (string< (plist-get a :end) (plist-get b :end))))))
+
+;;;; Inline XBRL
+
+(defun xbrl--inline-text (node)
+  "Return text under NODE, omitting Inline XBRL exclude elements."
+  (cond
+   ((stringp node)
+    node)
+   ((and (consp node) (not (eq (car node) 'exclude)))
+    (mapconcat #'xbrl--inline-text (cddr node) ""))
+   (t
+    "")))
+
+(defun xbrl--inline-first-text (node tag)
+  "Return the text of NODE's first descendant named TAG, or nil."
+  (when-let ((element (car (dom-by-tag node tag))))
+    (string-trim (xbrl--inline-text element))))
+
+(defun xbrl--inline-context (element)
+  "Return normalized context fields from Inline XBRL context ELEMENT."
+  (let ((period (car (dom-by-tag element 'period))))
+    (list
+     :entity (xbrl--inline-first-text element 'identifier)
+     :start (and period (xbrl--inline-first-text period 'startdate))
+     :end (and period (xbrl--inline-first-text period 'enddate))
+     :instant (and period (xbrl--inline-first-text period 'instant))
+     :dimensions
+     (mapcar
+      (lambda (member)
+        (cons
+         (dom-attr member 'dimension)
+         (string-trim (xbrl--inline-text member))))
+      (append
+       (dom-by-tag element 'explicitmember)
+       (dom-by-tag element 'typedmember))))))
+
+(defun xbrl--inline-unit (element)
+  "Return the normalized measure text from Inline XBRL unit ELEMENT."
+  (when-let ((measure (xbrl--inline-first-text element 'measure)))
+    (replace-regexp-in-string "\\`iso4217:" "" measure)))
+
+(defun xbrl--inline-continued-text (element continuations)
+  "Return ELEMENT text followed by its continuation chain.
+CONTINUATIONS maps Inline XBRL continuation ids to DOM elements."
+  (let ((text (xbrl--inline-text element))
+        (next (dom-attr element 'continuedat))
+        (seen (make-hash-table :test #'equal)))
+    (while (and next
+                (not (gethash next seen))
+                (gethash next continuations))
+      (puthash next t seen)
+      (let ((continuation (gethash next continuations)))
+        (setq
+         text (concat text (xbrl--inline-text continuation))
+         next (dom-attr continuation 'continuedat))))
+    text))
+
+(defun xbrl--inline-fact-elements (node)
+  "Return Inline XBRL fact elements under NODE in document order."
+  (when (consp node)
+    (append
+     (when (memq (car node) '(nonfraction nonnumeric))
+       (list node))
+     (mapcan #'xbrl--inline-fact-elements (cddr node)))))
+
+(defun xbrl--inline-number (text format scale sign)
+  "Convert Inline XBRL numeric TEXT using FORMAT, SCALE, and SIGN."
+  (let* ((text (string-trim text))
+         (dash-p
+          (or (string-empty-p text) (member text '("-" "—" "–"))))
+         (negative-p
+          (or (equal sign "-") (string-match-p "\\`(.*)\\'" text)))
+         (number-text
+          (cond
+           (dash-p
+            "0")
+           ((and format (string-match-p "num-comma-decimal" format))
+            (replace-regexp-in-string
+             "\\." "" (replace-regexp-in-string "," "." text t t)
+             t t))
+           (t
+            (replace-regexp-in-string "[, \t\r\n\u00a0]" "" text))))
+         (number-text
+          (if (string-match-p "\\`(.*)\\'" number-text)
+              (substring number-text 1 -1)
+            number-text)))
+    (when (string-match-p
+           "\\`[+-]?[0-9]+\\(?:\\.[0-9]+\\)?\\'" number-text)
+      (let* ((number (string-to-number number-text))
+             (scaled
+              (* number
+                 (expt
+                  10
+                  (if scale
+                      (string-to-number scale)
+                    0)))))
+        (if negative-p
+            (- (abs scaled))
+          scaled)))))
+
+(defun xbrl-inline-facts (html)
+  "Parse Inline XBRL facts from HTML and return them as plists.
+Each fact includes :name, :taxonomy, :concept, :value, :context-id,
+:context, :unit, :footnotes, :decimals, :scale, :sign, and :id.  Numeric
+:value is scaled to its reported magnitude; non-numeric values remain strings."
+  (unless (stringp html)
+    (signal 'wrong-type-argument (list 'stringp html)))
+  (with-temp-buffer
+    (insert html)
+    (let* ((tree (libxml-parse-html-region (point-min) (point-max)))
+           (contexts (make-hash-table :test #'equal))
+           (units (make-hash-table :test #'equal))
+           (continuations (make-hash-table :test #'equal))
+           (footnotes (make-hash-table :test #'equal))
+           facts)
+      (dolist (element (dom-by-tag tree 'context))
+        (when-let ((id (dom-attr element 'id)))
+          (puthash id (xbrl--inline-context element) contexts)))
+      (dolist (element (dom-by-tag tree 'unit))
+        (when-let ((id (dom-attr element 'id)))
+          (puthash id (xbrl--inline-unit element) units)))
+      (dolist (element (dom-by-tag tree 'continuation))
+        (when-let ((id (dom-attr element 'id)))
+          (puthash id element continuations)))
+      (dolist (element (dom-by-tag tree 'footnote))
+        (when-let ((id (dom-attr element 'id)))
+          (puthash
+           id (string-trim (xbrl--inline-text element)) footnotes)))
+      (dolist (element (xbrl--inline-fact-elements tree))
+        (let* ((tag (car element))
+               (name (dom-attr element 'name))
+               (separator (and name (string-match ":" name)))
+               (format (dom-attr element 'format))
+               (scale (dom-attr element 'scale))
+               (sign (dom-attr element 'sign))
+               (context-id (dom-attr element 'contextref))
+               (unit-ref (dom-attr element 'unitref))
+               (raw-value
+                (string-trim
+                 (xbrl--inline-continued-text element continuations)))
+               (value
+                (if (eq tag 'nonfraction)
+                    (xbrl--inline-number raw-value format scale sign)
+                  raw-value))
+               (fact-footnotes
+                (delq
+                 nil
+                 (mapcar
+                  (lambda (id) (gethash id footnotes))
+                  (split-string
+                   (or (dom-attr element 'footnoterefs) "")
+                   "[ \t\r\n]+" t)))))
+          (when (and name context-id value)
+            (push
+             (list
+              :name name
+              :taxonomy (and separator (substring name 0 separator))
+              :concept
+              (if separator
+                  (substring name (1+ separator))
+                name)
+              :value value
+              :context-id context-id
+              :context (gethash context-id contexts)
+              :unit (and unit-ref (gethash unit-ref units))
+              :unit-ref unit-ref
+              :footnotes fact-footnotes
+              :decimals (dom-attr element 'decimals)
+              :scale scale
+              :sign sign
+              :format format
+              :id (dom-attr element 'id))
+             facts))))
+      (nreverse facts))))
 
 (defun xbrl-frame (taxonomy concept unit period)
   "CONCEPT in TAXONOMY across all filers, in UNIT, for PERIOD.
