@@ -147,7 +147,9 @@ end ascending.  TAXONOMY defaults to us-gaap; foreign private issuers
 typically report under \"ifrs-full\".  UNIT is as for `xbrl-concept'
 \(default: the first unit present)."
   (let ((by-fy (make-hash-table :test 'eql)))
-    (dolist (f (xbrl-concept ticker (or taxonomy "us-gaap") concept unit))
+    (dolist (f
+             (xbrl-concept ticker (or taxonomy "us-gaap") concept
+                           unit))
       (when (and (member (plist-get f :form) xbrl--annual-forms)
                  (equal (plist-get f :fp) "FY"))
         ;; Key on period end year, not :fy (which is the filing's FY).
@@ -436,7 +438,8 @@ TAXONOMY defaults to us-gaap."
   (interactive (list (xbrl--read-ticker)))
   (let ((names (xbrl-concept-names ticker taxonomy)))
     (xbrl-show-concept
-     ticker (completing-read "Concept: " names nil t) taxonomy)))
+     ticker (completing-read "Concept: " names nil t)
+     taxonomy)))
 
 (define-derived-mode
  xbrl-mode
