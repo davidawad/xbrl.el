@@ -16,10 +16,11 @@ edgar.el.
   (install once: `eask install-deps --dev`; needs `eask-cli` from brew).
   One command runs every gate: `eask run script check` (package-lint,
   checkdoc, relint, ERT with undercover coverage, byte-compile). Format with
-  `eask format elisp-autofmt src/xbrl.el test/xbrl-test.el` BEFORE
+  `eask format elisp-autofmt xbrl.el test/xbrl-test.el` BEFORE
   committing. Also installed, run by hand: propcheck (property tests),
   ecukes (e2e), codemetrics + cognitive-complexity (warn-only metrics).
-- Source is `src/xbrl.el`; tests are ERT in `test/xbrl-test.el`. Almost all
+- Source is `xbrl.el` at the repo root (standard package layout, so
+  `package-vc-install` and MELPA work with no extra config); tests are ERT in `test/xbrl-test.el`. Almost all
   tests are hermetic (`xbrl--get` stubbed with canned SEC payloads); the one
   network test needs `XBRL_LIVE=1`. Set `xbrl-user-agent` to a real name +
   email first (SEC requires it; stay under 10 req/s). Coverage is ~80%.

@@ -2,12 +2,15 @@
 
 Query SEC EDGAR XBRL facts (10-K/10-Q financials) from Emacs via the data.sec.gov JSON APIs.
 
-## Install from a checkout
+## Install
 
-Add the package's `src` directory to `load-path`, then load it:
+Emacs 29.1 or newer. Straight from GitHub:
 
-    (add-to-list 'load-path "/path/to/xbrl.el/src")
-    (require 'xbrl)
+    (package-vc-install "https://github.com/davidawad/xbrl.el")
+
+Or from a checkout: add its directory to `load-path`, then `(require 'xbrl)`.
+
+## Use
 
     (setq xbrl-user-agent "Your Name you@example.com") ; SEC requires this
     (xbrl-annual "AAPL" "Revenues")
@@ -21,8 +24,8 @@ metadata; this function does not fetch filings.
 
 Offline tests (the live test is skipped):
 
-    emacs --batch -Q -L src -l test/xbrl-test.el -f ert-run-tests-batch-and-exit
+    emacs --batch -Q -L . -l test/xbrl-test.el -f ert-run-tests-batch-and-exit
 
 To include the SEC live test:
 
-    XBRL_LIVE=1 emacs --batch -Q -L src -l test/xbrl-test.el -f ert-run-tests-batch-and-exit
+    XBRL_LIVE=1 emacs --batch -Q -L . -l test/xbrl-test.el -f ert-run-tests-batch-and-exit

@@ -11,12 +11,12 @@
 (website-url "https://github.com/davidawad/xbrl.el")
 (keywords "finance" "data" "tools")
 
-(package-file "src/xbrl.el")
-(files "src/*.el")
+(package-file "xbrl.el")
+(files "xbrl.el")
 
 (script "test" "eask test ert test/xbrl-test.el")
 (script "check"
-        "eask lint package && eask lint checkdoc && eask lint regexps && UNDERCOVER_FORCE=true eask test ert test/xbrl-test.el && eask compile src/xbrl.el")
+        "eask lint package && eask lint checkdoc && eask lint regexps && UNDERCOVER_FORCE=true eask test ert test/xbrl-test.el && eask compile xbrl.el")
 
 (source 'gnu)
 (source 'melpa)
