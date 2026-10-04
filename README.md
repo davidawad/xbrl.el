@@ -16,6 +16,9 @@ Or from a checkout: add its directory to `load-path`, then `(require 'xbrl)`.
     (xbrl-annual "AAPL" "Revenues")
     M-x xbrl-show-facts
 
+See the [showcase](docs/README.md) for worked examples with screenshots, using
+Snap Inc's annual reports.
+
 Scope: SEC XBRL JSON APIs and read-only Inline XBRL fact extraction from an HTML
 string via `xbrl-inline-facts`. Inline facts include their context and unit
 metadata; this function does not fetch filings.
