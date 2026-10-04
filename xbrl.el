@@ -170,7 +170,7 @@ Returns facts sorted by :fy ascending.  TAXONOMY defaults to us-gaap."
 
 (defun xbrl--inline-first-text (node tag)
   "Return the text of NODE's first descendant named TAG, or nil."
-  (when-let ((element (car (dom-by-tag node tag))))
+  (when-let* ((element (car (dom-by-tag node tag))))
     (string-trim (xbrl--inline-text element))))
 
 (defun xbrl--inline-context (element)
@@ -193,7 +193,7 @@ Returns facts sorted by :fy ascending.  TAXONOMY defaults to us-gaap."
 
 (defun xbrl--inline-unit (element)
   "Return the normalized measure text from Inline XBRL unit ELEMENT."
-  (when-let ((measure (xbrl--inline-first-text element 'measure)))
+  (when-let* ((measure (xbrl--inline-first-text element 'measure)))
     (replace-regexp-in-string "\\`iso4217:" "" measure)))
 
 (defun xbrl--inline-continued-text (element continuations)
@@ -271,16 +271,16 @@ Each fact includes :name, :taxonomy, :concept, :value, :context-id,
            (footnotes (make-hash-table :test #'equal))
            facts)
       (dolist (element (dom-by-tag tree 'context))
-        (when-let ((id (dom-attr element 'id)))
+        (when-let* ((id (dom-attr element 'id)))
           (puthash id (xbrl--inline-context element) contexts)))
       (dolist (element (dom-by-tag tree 'unit))
-        (when-let ((id (dom-attr element 'id)))
+        (when-let* ((id (dom-attr element 'id)))
           (puthash id (xbrl--inline-unit element) units)))
       (dolist (element (dom-by-tag tree 'continuation))
-        (when-let ((id (dom-attr element 'id)))
+        (when-let* ((id (dom-attr element 'id)))
           (puthash id element continuations)))
       (dolist (element (dom-by-tag tree 'footnote))
-        (when-let ((id (dom-attr element 'id)))
+        (when-let* ((id (dom-attr element 'id)))
           (puthash
            id (string-trim (xbrl--inline-text element)) footnotes)))
       (dolist (element (xbrl--inline-fact-elements tree))
