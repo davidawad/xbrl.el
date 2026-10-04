@@ -5,8 +5,9 @@ data.sec.gov JSON APIs (companyfacts, companyconcept, frames). Everything is
 plain Lisp returning plain data so filed 10-K/10-Q numbers compose into other
 code. Scope boundary: this package knows XBRL semantics (concepts, facts,
 contexts, units) and nothing about filings as documents -- that is the
-sibling package `edgar.el`, which requires this one. Planned: inline-XBRL
-(`ix:nonFraction`) tag extraction belongs HERE, not in edgar.el.
+sibling package `edgar.el`, which requires this one. Inline-XBRL
+(`ix:nonFraction`) tag extraction (`xbrl-inline-facts`) lives HERE, not in
+edgar.el.
 
 ## For agents
 
