@@ -2,6 +2,18 @@
 
 Query SEC EDGAR XBRL facts (10-K/10-Q financials) from Emacs via the data.sec.gov JSON APIs.
 
+![Snap Inc annual revenue in the xbrl.el table](docs/img/04-show-concept.png)
+
+Features, each with a worked example and screenshot in the [showcase](docs/README.md):
+
+- [Net margin by year](docs/README.md#1-revenue--net-loss--net-margin-by-year): compose revenue and net income into a ratio
+- [Concept discovery](docs/README.md#2-discover-concept-names): find the exact tag a company reports under
+- [Cross-filer frames](docs/README.md#3-cross-filer-comparison-with-a-frame): one concept for every filer in a period
+- [Table browser](docs/README.md#4-browse-a-concept-as-a-table): `M-x xbrl-show-facts`, sortable, with filing accession numbers
+- Inline XBRL: read facts straight out of a filing's HTML with `xbrl-inline-facts`
+
+Companion package: [edgar.el](https://github.com/davidawad/edgar.el) reads the filings themselves.
+
 ## Install
 
 Emacs 29.1 or newer. Straight from GitHub:
@@ -13,11 +25,8 @@ Or from a checkout: add its directory to `load-path`, then `(require 'xbrl)`.
 ## Use
 
     (setq xbrl-user-agent "Your Name you@example.com") ; SEC requires this
-    (xbrl-annual "AAPL" "Revenues")
+    (xbrl-annual "SNAP" "NetIncomeLoss")
     M-x xbrl-show-facts
-
-See the [showcase](docs/README.md) for worked examples with screenshots, using
-Snap Inc's annual reports.
 
 Scope: SEC XBRL JSON APIs and read-only Inline XBRL fact extraction from an HTML
 string via `xbrl-inline-facts`. Inline facts include their context and unit

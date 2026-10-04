@@ -137,12 +137,18 @@ to the first unit present (usually USD).  TAXONOMY is e.g. \"us-gaap\"."
         :unit (substring (symbol-name key) 1)))
      rows)))
 
-(defun xbrl-annual (ticker concept &optional taxonomy)
-  "Latest-filed 10-K value per fiscal year for CONCEPT of TICKER.
-Returns facts sorted by :fy ascending.  TAXONOMY defaults to us-gaap."
+(defconst xbrl--annual-forms '("10-K" "20-F" "40-F")
+  "Annual report form types: domestic (10-K) and foreign private issuer.")
+
+(defun xbrl-annual (ticker concept &optional taxonomy unit)
+  "Latest-filed annual-report value per fiscal year for CONCEPT of TICKER.
+Counts Form 10-K, 20-F and 40-F facts.  Returns facts sorted by period
+end ascending.  TAXONOMY defaults to us-gaap; foreign private issuers
+typically report under \"ifrs-full\".  UNIT is as for `xbrl-concept'
+\(default: the first unit present)."
   (let ((by-fy (make-hash-table :test 'eql)))
-    (dolist (f (xbrl-concept ticker (or taxonomy "us-gaap") concept))
-      (when (and (equal (plist-get f :form) "10-K")
+    (dolist (f (xbrl-concept ticker (or taxonomy "us-gaap") concept unit))
+      (when (and (member (plist-get f :form) xbrl--annual-forms)
                  (equal (plist-get f :fp) "FY"))
         ;; Key on period end year, not :fy (which is the filing's FY).
         (let* ((end (plist-get f :end))
@@ -381,14 +387,15 @@ PERIOD looks like \"CY2023\" or \"CY2023Q4I\"."
     s))
 
 ;;;###autoload
-(defun xbrl-show-concept (ticker concept)
-  "Show annual 10-K values of us-gaap CONCEPT for TICKER."
+(defun xbrl-show-concept (ticker concept &optional taxonomy)
+  "Show annual values of CONCEPT for TICKER in a table.
+TAXONOMY defaults to us-gaap."
   (interactive (let ((tk (xbrl--read-ticker)))
                  (list
                   tk
                   (completing-read "Concept: " (xbrl-concept-names tk)
                                    nil nil))))
-  (let ((rows (xbrl-annual ticker concept)))
+  (let ((rows (xbrl-annual ticker concept taxonomy)))
     (with-current-buffer (get-buffer-create "*xbrl*")
       (xbrl-mode)
       (setq
@@ -423,12 +430,13 @@ PERIOD looks like \"CY2023\" or \"CY2023Q4I\"."
       (replace-regexp-in-string "," "" (aref (cadr b) 1)))))
 
 ;;;###autoload
-(defun xbrl-show-facts (ticker)
-  "Browse every us-gaap concept TICKER reports, then show its annual values."
+(defun xbrl-show-facts (ticker &optional taxonomy)
+  "Browse every TAXONOMY concept TICKER reports, then show its annual values.
+TAXONOMY defaults to us-gaap."
   (interactive (list (xbrl--read-ticker)))
-  (let ((names (xbrl-concept-names ticker)))
+  (let ((names (xbrl-concept-names ticker taxonomy)))
     (xbrl-show-concept
-     ticker (completing-read "Concept: " names nil t))))
+     ticker (completing-read "Concept: " names nil t) taxonomy)))
 
 (define-derived-mode
  xbrl-mode
