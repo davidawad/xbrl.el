@@ -374,6 +374,37 @@
          (string-match-p "0001564408-26-000013" (buffer-string))))
       (kill-buffer "*xbrl*"))))
 
+;;; Regression: foreign private issuers file 20-F under ifrs-full.
+;;; Fixture: TSMC's real companyconcept Revenue response, USD rows only.
+
+(defmacro xbrl-test--with-tsmc (&rest body)
+  "Run BODY with `xbrl--get' serving the tiny TSMC 20-F fixtures."
+  (declare (indent 0))
+  `(xbrl-test--with-api `(("company_tickers" .
+                           ,(xbrl-test--fixture
+                             "company-tickers-tsm.json"))
+                          ("ifrs-full/Revenue\\.json" .
+                           ,(xbrl-test--fixture
+                             "tsm-ifrs-revenue-20f.json")))
+     ,@body))
+
+(ert-deftest xbrl-annual-counts-20f-with-unit ()
+  (xbrl-test--with-tsmc
+    (let ((r
+           (xbrl-test--by-year
+            (xbrl-annual "TSM" "Revenue" "ifrs-full" "USD"))))
+      (should (= (length r) 8))
+      (should (= (cdr (assq 2023 r)) 70598800000))
+      (should (= (cdr (assq 2024 r)) 88268000000)))))
+
+(ert-deftest xbrl-show-concept-takes-taxonomy ()
+  (xbrl-test--with-tsmc
+    (cl-letf (((symbol-function 'pop-to-buffer) #'ignore))
+      (xbrl-show-concept "TSM" "Revenue" "ifrs-full")
+      (with-current-buffer "*xbrl*"
+        (should (string-match-p "88,268,000,000" (buffer-string))))
+      (kill-buffer "*xbrl*"))))
+
 (ert-deftest xbrl-live-annual ()
   :tags
   '(network)

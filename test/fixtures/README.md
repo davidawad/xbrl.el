@@ -30,3 +30,14 @@ are only trimmed (reformatted JSON, rows or fields dropped, nothing edited).
   1506293 Pinterest, 1713445 Reddit, 1652044 Alphabet).
 - `company-tickers-snap.json`: the SNAP entry of
   https://www.sec.gov/files/company_tickers.json
+
+# 20-F regression fixture (TSMC, test-only)
+
+Used only by the `xbrl-annual` 20-F/ifrs-full regression tests, not by the docs.
+Fetched 2026-10-03; rows are verbatim, trimmed to the USD unit.
+
+- `tsm-ifrs-revenue-20f.json`: from
+  https://data.sec.gov/api/xbrl/companyconcept/CIK0001046179/ifrs-full/Revenue.json
+  (`TWD` unit dropped)
+- `company-tickers-tsm.json`: the TSM entry of
+  https://www.sec.gov/files/company_tickers.json
