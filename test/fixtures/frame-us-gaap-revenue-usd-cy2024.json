@@ -1,0 +1,56 @@
+{
+ "taxonomy": "us-gaap",
+ "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+ "ccp": "CY2024",
+ "uom": "USD",
+ "label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+ "description": "Amount, excluding tax collected from customer, of revenue from satisfaction of performance obligation by transferring promised good or service to customer. Tax collected from customer is tax assessed by governmental authority that is both imposed on and concurrent with specific revenue-producing transaction, including, but not limited to, sales, use, value added and excise.",
+ "pts": 2970,
+ "data": [
+  {
+   "accn": "0001628280-26-003942",
+   "cik": 1326801,
+   "entityName": "Meta Platforms, Inc.",
+   "loc": "US-CA",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "val": 164501000000
+  },
+  {
+   "accn": "0001506293-26-000021",
+   "cik": 1506293,
+   "entityName": "Pinterest, Inc.",
+   "loc": "US-CA",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "val": 3646166000
+  },
+  {
+   "accn": "0001564408-26-000013",
+   "cik": 1564408,
+   "entityName": "SNAP INC",
+   "loc": "US-CA",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "val": 5361398000
+  },
+  {
+   "accn": "0001652044-25-000014",
+   "cik": 1652044,
+   "entityName": "Alphabet Inc.",
+   "loc": "US-CA",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "val": 350018000000
+  },
+  {
+   "accn": "0001713445-26-000022",
+   "cik": 1713445,
+   "entityName": "Reddit, Inc.",
+   "loc": "US-CA",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "val": 1300205000
+  }
+ ]
+}

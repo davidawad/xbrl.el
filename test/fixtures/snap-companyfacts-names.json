@@ -1,0 +1,1252 @@
+{
+ "cik": 1564408,
+ "entityName": "SNAP INC",
+ "facts": {
+  "us-gaap": {
+   "AccountsPayableCurrent": {
+    "label": "Accounts Payable, Current",
+    "units": {}
+   },
+   "AccountsReceivableNetCurrent": {
+    "label": "Accounts Receivable, after Allowance for Credit Loss, Current",
+    "units": {}
+   },
+   "AccretionExpense": {
+    "label": "Accretion Expense",
+    "units": {}
+   },
+   "AccruedLiabilitiesCurrent": {
+    "label": "Accrued Liabilities, Current",
+    "units": {}
+   },
+   "AccruedProfessionalFeesCurrent": {
+    "label": "Accrued Professional Fees, Current",
+    "units": {}
+   },
+   "AccumulatedDepreciationDepletionAndAmortizationPropertyPlantAndEquipment": {
+    "label": "Accumulated Depreciation, Depletion and Amortization, Property, Plant, and Equipment",
+    "units": {}
+   },
+   "AccumulatedOtherComprehensiveIncomeLossNetOfTax": {
+    "label": "Accumulated Other Comprehensive Income (Loss), Net of Tax",
+    "units": {}
+   },
+   "AdditionalPaidInCapital": {
+    "label": "Additional Paid in Capital",
+    "units": {}
+   },
+   "AdjustmentsToAdditionalPaidInCapitalEquityComponentOfConvertibleDebt": {
+    "label": "Adjustments to Additional Paid in Capital, Equity Component of Convertible Debt",
+    "units": {}
+   },
+   "AdvertisingExpense": {
+    "label": "Advertising Expense",
+    "units": {}
+   },
+   "AdvertisingRevenue": {
+    "label": "Advertising Revenue (Deprecated 2018-01-31)",
+    "units": {}
+   },
+   "AdvertisingRevenueCost": {
+    "label": "Advertising Revenue Cost (Deprecated 2018-01-31)",
+    "units": {}
+   },
+   "AllocatedShareBasedCompensationExpense": {
+    "label": "Share-based Payment Arrangement, Expense",
+    "units": {}
+   },
+   "AmortizationOfFinancingCostsAndDiscounts": {
+    "label": "Amortization of Debt Issuance Costs and Discounts",
+    "units": {}
+   },
+   "AmortizationOfIntangibleAssets": {
+    "label": "Amortization of Intangible Assets",
+    "units": {}
+   },
+   "AssetImpairmentCharges": {
+    "label": "Asset Impairment Charges",
+    "units": {}
+   },
+   "Assets": {
+    "label": "Assets",
+    "units": {}
+   },
+   "AssetsCurrent": {
+    "label": "Assets, Current",
+    "units": {}
+   },
+   "AvailableForSaleSecuritiesDebtMaturitiesAfterOneThroughFiveYearsFairValue": {
+    "label": "Debt Securities, Available-for-Sale, Fair Value, Maturity, Allocated and Single Maturity Date, after Year One Through Five",
+    "units": {}
+   },
+   "AvailableForSaleSecuritiesDebtSecurities": {
+    "label": "Debt Securities, Available-for-sale",
+    "units": {}
+   },
+   "BusinessAcquisitionPurchasePriceAllocationGoodwillExpectedTaxDeductibleAmount": {
+    "label": "Business Acquisition, Goodwill, Expected Tax Deductible Amount",
+    "units": {}
+   },
+   "BusinessCombinationConsiderationTransferred1": {
+    "label": "Business Combination, Consideration Transferred",
+    "units": {}
+   },
+   "BusinessCombinationContingentConsiderationLiabilityCurrent": {
+    "label": "Business Combination, Contingent Consideration, Liability, Current",
+    "units": {}
+   },
+   "BusinessCombinationContingentConsiderationLiabilityNoncurrent": {
+    "label": "Business Combination, Contingent Consideration, Liability, Noncurrent",
+    "units": {}
+   },
+   "BusinessExitCosts1": {
+    "label": "Business Exit Costs",
+    "units": {}
+   },
+   "CapitalLeaseObligationsNoncurrent": {
+    "label": "Capital Lease Obligations, Noncurrent",
+    "units": {}
+   },
+   "CashAndCashEquivalentsAtCarryingValue": {
+    "label": "Cash and Cash Equivalents, at Carrying Value",
+    "units": {}
+   },
+   "CashAndCashEquivalentsPeriodIncreaseDecrease": {
+    "label": "Cash and Cash Equivalents, Period Increase (Decrease)",
+    "units": {}
+   },
+   "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents": {
+    "label": "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents",
+    "units": {}
+   },
+   "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseExcludingExchangeRateEffect": {
+    "label": "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents, Period Increase (Decrease), Excluding Exchange Rate Effect",
+    "units": {}
+   },
+   "ComprehensiveIncomeNetOfTax": {
+    "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent",
+    "units": {}
+   },
+   "ConstructionInProgressExpendituresIncurredButNotYetPaid": {
+    "label": "Construction in Progress Expenditures Incurred but Not yet Paid",
+    "units": {}
+   },
+   "ContractualObligation": {
+    "label": "Contractual Obligation",
+    "units": {}
+   },
+   "ContractualObligationDueAfterFifthYear": {
+    "label": "Contractual Obligation, to be Paid, after Year Five",
+    "units": {}
+   },
+   "ContractualObligationDueInFifthYear": {
+    "label": "Contractual Obligation, to be Paid, Year Five",
+    "units": {}
+   },
+   "ContractualObligationDueInFourthYear": {
+    "label": "Contractual Obligation, to be Paid, Year Four",
+    "units": {}
+   },
+   "ContractualObligationDueInNextTwelveMonths": {
+    "label": "Contractual Obligation, to be Paid, Year One",
+    "units": {}
+   },
+   "ContractualObligationDueInSecondYear": {
+    "label": "Contractual Obligation, to be Paid, Year Two",
+    "units": {}
+   },
+   "ContractualObligationDueInThirdYear": {
+    "label": "Contractual Obligation, to be Paid, Year Three",
+    "units": {}
+   },
+   "ContractualObligationFutureMinimumPaymentsDueRemainderOfFiscalYear": {
+    "label": "Contractual Obligation, to be Paid, Remainder of Fiscal Year",
+    "units": {}
+   },
+   "ConvertibleDebtNoncurrent": {
+    "label": "Convertible Debt, Noncurrent",
+    "units": {}
+   },
+   "CostOfGoodsAndServicesSold": {
+    "label": "Cost of Goods and Services Sold",
+    "units": {}
+   },
+   "CostOfRevenue": {
+    "label": "Cost of Revenue",
+    "units": {}
+   },
+   "CostsAndExpenses": {
+    "label": "Costs and Expenses",
+    "units": {}
+   },
+   "CurrentForeignTaxExpenseBenefit": {
+    "label": "Current Foreign Tax Expense (Benefit)",
+    "units": {}
+   },
+   "CurrentIncomeTaxExpenseBenefit": {
+    "label": "Current Income Tax Expense (Benefit)",
+    "units": {}
+   },
+   "CurrentStateAndLocalTaxExpenseBenefit": {
+    "label": "Current State and Local Tax Expense (Benefit)",
+    "units": {}
+   },
+   "DebtAndEquitySecuritiesGainLoss": {
+    "label": "Debt and Equity Securities, Gain (Loss)",
+    "units": {}
+   },
+   "DebtIssuanceCostsIncurredDuringNoncashOrPartialNoncashTransaction": {
+    "label": "Debt Issuance Costs Incurred During Noncash or Partial Noncash Transaction",
+    "units": {}
+   },
+   "DeferredFederalIncomeTaxExpenseBenefit": {
+    "label": "Deferred Federal Income Tax Expense (Benefit)",
+    "units": {}
+   },
+   "DeferredForeignIncomeTaxExpenseBenefit": {
+    "label": "Deferred Foreign Income Tax Expense (Benefit)",
+    "units": {}
+   },
+   "DeferredIncomeTaxExpenseBenefit": {
+    "label": "Deferred Income Tax Expense (Benefit)",
+    "units": {}
+   },
+   "DeferredIncomeTaxLiabilities": {
+    "label": "Deferred Tax Liabilities, Gross",
+    "units": {}
+   },
+   "DeferredRentCreditCurrent": {
+    "label": "Deferred Rent Credit, Current",
+    "units": {}
+   },
+   "DeferredRevenue": {
+    "label": "Deferred Revenue",
+    "units": {}
+   },
+   "DeferredStateAndLocalIncomeTaxExpenseBenefit": {
+    "label": "Deferred State and Local Income Tax Expense (Benefit)",
+    "units": {}
+   },
+   "DeferredTaxAssetsDeferredIncome": {
+    "label": "Deferred Tax Assets, Deferred Income",
+    "units": {}
+   },
+   "DeferredTaxAssetsGoodwillAndIntangibleAssets": {
+    "label": "Deferred Tax Assets, Goodwill and Intangible Assets",
+    "units": {}
+   },
+   "DeferredTaxAssetsGross": {
+    "label": "Deferred Tax Assets, Gross",
+    "units": {}
+   },
+   "DeferredTaxAssetsLiabilitiesNet": {
+    "label": "Deferred Tax Assets, Net",
+    "units": {}
+   },
+   "DeferredTaxAssetsOperatingLossCarryforwards": {
+    "label": "Deferred Tax Assets, Operating Loss Carryforwards",
+    "units": {}
+   },
+   "DeferredTaxAssetsOther": {
+    "label": "Deferred Tax Assets, Other",
+    "units": {}
+   },
+   "DeferredTaxAssetsPropertyPlantAndEquipment": {
+    "label": "Deferred Tax Assets, Property, Plant and Equipment",
+    "units": {}
+   },
+   "DeferredTaxAssetsTaxCreditCarryforwards": {
+    "label": "Deferred Tax Assets, Tax Credit Carryforwards",
+    "units": {}
+   },
+   "DeferredTaxAssetsTaxDeferredExpenseCompensationAndBenefitsShareBasedCompensationCost": {
+    "label": "Deferred Tax Assets, Tax Deferred Expense, Compensation and Benefits, Share-based Compensation Cost",
+    "units": {}
+   },
+   "DeferredTaxAssetsTaxDeferredExpenseReservesAndAccrualsAccruedLiabilities": {
+    "label": "Deferred Tax Assets, Tax Deferred Expense, Reserves and Accruals, Accrued Liabilities",
+    "units": {}
+   },
+   "DeferredTaxAssetsValuationAllowance": {
+    "label": "Deferred Tax Assets, Valuation Allowance",
+    "units": {}
+   },
+   "DeferredTaxLiabilities": {
+    "label": "Deferred Tax Liabilities, Net",
+    "units": {}
+   },
+   "DeferredTaxLiabilitiesOther": {
+    "label": "Deferred Tax Liabilities, Other",
+    "units": {}
+   },
+   "DeferredTaxLiabilitiesPropertyPlantAndEquipment": {
+    "label": "Deferred Tax Liabilities, Property, Plant and Equipment",
+    "units": {}
+   },
+   "DefinedContributionPlanCostRecognized": {
+    "label": "Defined Contribution Plan, Cost",
+    "units": {}
+   },
+   "DefinedContributionPlanMaximumAnnualContributionsPerEmployeePercent": {
+    "label": "Defined Contribution Plan, Maximum Annual Contributions Per Employee, Percent",
+    "units": {}
+   },
+   "DepreciationDepletionAndAmortization": {
+    "label": "Depreciation, Depletion and Amortization",
+    "units": {}
+   },
+   "EarningsPerShareBasic": {
+    "label": "Earnings Per Share, Basic",
+    "units": {}
+   },
+   "EarningsPerShareDiluted": {
+    "label": "Earnings Per Share, Diluted",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateContinuingOperations": {
+    "label": "Effective Income Tax Rate Reconciliation, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationAtFederalStatutoryIncomeTaxRate": {
+    "label": "Effective Income Tax Rate Reconciliation, at Federal Statutory Income Tax Rate, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationChangeInDeferredTaxAssetsValuationAllowance": {
+    "label": "Effective Income Tax Rate Reconciliation, Change in Deferred Tax Assets Valuation Allowance, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationChangeInEnactedTaxRate": {
+    "label": "Effective Income Tax Rate Reconciliation, Change in Enacted Tax Rate, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationForeignIncomeTaxRateDifferential": {
+    "label": "Effective Income Tax Rate Reconciliation, Foreign Income Tax Rate Differential, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationOtherAdjustments": {
+    "label": "Effective Income Tax Rate Reconciliation, Other Adjustments, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationStateAndLocalIncomeTaxes": {
+    "label": "Effective Income Tax Rate Reconciliation, State and Local Income Taxes, Percent",
+    "units": {}
+   },
+   "EmployeeRelatedLiabilitiesCurrent": {
+    "label": "Employee-related Liabilities, Current",
+    "units": {}
+   },
+   "EmployeeServiceShareBasedCompensationNonvestedAwardsTotalCompensationCostNotYetRecognizedStockOptions": {
+    "label": "Share-based Payment Arrangement, Nonvested Award, Option, Cost Not yet Recognized, Amount",
+    "units": {}
+   },
+   "EquityMethodInvestmentRealizedGainLossOnDisposal": {
+    "label": "Equity Method Investment, Realized Gain (Loss) on Disposal",
+    "units": {}
+   },
+   "EquityMethodInvestments": {
+    "label": "Equity Method Investments",
+    "units": {}
+   },
+   "EquitySecuritiesFvNiCurrentAndNoncurrent": {
+    "label": null,
+    "units": {}
+   },
+   "FairValueAssetsLevel1ToLevel2TransfersAmount": {
+    "label": "Fair Value, Assets, Level 1 to Level 2 Transfers, Amount",
+    "units": {}
+   },
+   "FairValueAssetsLevel2ToLevel1TransfersAmount": {
+    "label": "Fair Value, Assets, Level 2 to Level 1 Transfers, Amount",
+    "units": {}
+   },
+   "FairValueLiabilitiesLevel1ToLevel2TransfersAmount": {
+    "label": "Fair Value, Liabilities, Level 1 to Level 2 Transfers, Amount",
+    "units": {}
+   },
+   "FairValueLiabilitiesLevel2ToLevel1TransfersAmount": {
+    "label": "Fair Value, Liabilities, Level 2 to Level 1 Transfers, Amount",
+    "units": {}
+   },
+   "FinanceLeaseLiabilityNoncurrent": {
+    "label": "Finance Lease, Liability, Noncurrent",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAccumulatedAmortization": {
+    "label": "Finite-Lived Intangible Assets, Accumulated Amortization",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAmortizationExpenseAfterYearFive": {
+    "label": "Finite-Lived Intangible Asset, Expected Amortization, after Year Five",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAmortizationExpenseNextTwelveMonths": {
+    "label": "Finite-Lived Intangible Asset, Expected Amortization, Year One",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAmortizationExpenseRemainderOfFiscalYear": {
+    "label": "Finite-Lived Intangible Asset, Expected Amortization, Remainder of Fiscal Year",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAmortizationExpenseYearFive": {
+    "label": "Finite-Lived Intangible Asset, Expected Amortization, Year Five",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAmortizationExpenseYearFour": {
+    "label": "Finite-Lived Intangible Asset, Expected Amortization, Year Four",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAmortizationExpenseYearThree": {
+    "label": "Finite-Lived Intangible Asset, Expected Amortization, Year Three",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsAmortizationExpenseYearTwo": {
+    "label": "Finite-Lived Intangible Asset, Expected Amortization, Year Two",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsGross": {
+    "label": "Finite-Lived Intangible Assets, Gross",
+    "units": {}
+   },
+   "FiniteLivedIntangibleAssetsNet": {
+    "label": "Finite-Lived Intangible Assets, Net",
+    "units": {}
+   },
+   "GainLossOnSaleOfBusiness": {
+    "label": "Gain (Loss) on Disposition of Business",
+    "units": {}
+   },
+   "GainOnSaleOfInvestments": {
+    "label": "Gain on Sale of Investments",
+    "units": {}
+   },
+   "GeneralAndAdministrativeExpense": {
+    "label": "General and Administrative Expense",
+    "units": {}
+   },
+   "Goodwill": {
+    "label": "Goodwill",
+    "units": {}
+   },
+   "GoodwillAcquiredDuringPeriod": {
+    "label": "Goodwill, Acquired During Period",
+    "units": {}
+   },
+   "GoodwillForeignCurrencyTranslationGainLoss": {
+    "label": "Goodwill, Foreign Currency Translation Gain (Loss)",
+    "units": {}
+   },
+   "GoodwillImpairmentLoss": {
+    "label": "Goodwill, Impairment Loss",
+    "units": {}
+   },
+   "GoodwillWrittenOffRelatedToSaleOfBusinessUnit": {
+    "label": "Goodwill, Written off Related to Sale of Business Unit",
+    "units": {}
+   },
+   "ImpairmentOfInvestments": {
+    "label": "Other than Temporary Impairment Losses, Investments",
+    "units": {}
+   },
+   "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic": {
+    "label": "Income (Loss) from Continuing Operations before Income Taxes, Domestic",
+    "units": {}
+   },
+   "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest": {
+    "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+    "units": {}
+   },
+   "IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign": {
+    "label": "Income (Loss) from Continuing Operations before Income Taxes, Foreign",
+    "units": {}
+   },
+   "IncomeTaxExpenseBenefit": {
+    "label": "Income Tax Expense (Benefit)",
+    "units": {}
+   },
+   "IncomeTaxesPaid": {
+    "label": "Income Taxes Paid",
+    "units": {}
+   },
+   "IncomeTaxesPaidNet": {
+    "label": "Income Taxes Paid, Net",
+    "units": {}
+   },
+   "IncomeTaxReconciliationChangeInEnactedTaxRate": {
+    "label": "Effective Income Tax Rate Reconciliation, Change in Enacted Tax Rate, Amount",
+    "units": {}
+   },
+   "IncreaseDecreaseInAccountsPayable": {
+    "label": "Increase (Decrease) in Accounts Payable",
+    "units": {}
+   },
+   "IncreaseDecreaseInAccountsReceivable": {
+    "label": "Increase (Decrease) in Accounts Receivable",
+    "units": {}
+   },
+   "IncreaseDecreaseInAccruedLiabilities": {
+    "label": "Increase (Decrease) in Accrued Liabilities",
+    "units": {}
+   },
+   "IncreaseDecreaseInOtherOperatingAssets": {
+    "label": "Increase (Decrease) in Other Operating Assets",
+    "units": {}
+   },
+   "IncreaseDecreaseInOtherOperatingLiabilities": {
+    "label": "Increase (Decrease) in Other Operating Liabilities",
+    "units": {}
+   },
+   "IncreaseDecreaseInPrepaidDeferredExpenseAndOtherAssets": {
+    "label": "Increase (Decrease) in Prepaid Expense and Other Assets",
+    "units": {}
+   },
+   "IncreaseDecreaseInRestrictedCash": {
+    "label": "Increase (Decrease) in Restricted Cash",
+    "units": {}
+   },
+   "InducedConversionOfConvertibleDebtExpense": {
+    "label": "Induced Conversion of Convertible Debt Expense",
+    "units": {}
+   },
+   "InterestExpense": {
+    "label": "Interest Expense",
+    "units": {}
+   },
+   "InterestPaidNet": {
+    "label": "Interest Paid, Excluding Capitalized Interest, Operating Activities",
+    "units": {}
+   },
+   "InvestmentIncomeInterest": {
+    "label": "Investment Income, Interest",
+    "units": {}
+   },
+   "LeaseCost": {
+    "label": "Lease, Cost",
+    "units": {}
+   },
+   "LeaseIncentivePayableCurrent": {
+    "label": "Lease Incentive, Payable, Current",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsDue": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsDueAfterYearFive": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid, after Year Five",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsDueNextTwelveMonths": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid, Year One",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsDueYearFive": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid, Year Five",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsDueYearFour": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid, Year Four",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsDueYearThree": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid, Year Three",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsDueYearTwo": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid, Year Two",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityPaymentsRemainderOfFiscalYear": {
+    "label": "Lessee, Operating Lease, Liability, to be Paid, Remainder of Fiscal Year",
+    "units": {}
+   },
+   "LesseeOperatingLeaseLiabilityUndiscountedExcessAmount": {
+    "label": "Lessee, Operating Lease, Liability, Undiscounted Excess Amount",
+    "units": {}
+   },
+   "Liabilities": {
+    "label": "Liabilities",
+    "units": {}
+   },
+   "LiabilitiesAndStockholdersEquity": {
+    "label": "Liabilities and Equity",
+    "units": {}
+   },
+   "LiabilitiesCurrent": {
+    "label": "Liabilities, Current",
+    "units": {}
+   },
+   "MarketableSecuritiesCurrent": {
+    "label": "Marketable Securities, Current",
+    "units": {}
+   },
+   "NetCashProvidedByUsedInFinancingActivities": {
+    "label": "Net Cash Provided by (Used in) Financing Activities",
+    "units": {}
+   },
+   "NetCashProvidedByUsedInFinancingActivitiesContinuingOperations": {
+    "label": "Net Cash Provided by (Used in) Financing Activities, Continuing Operations",
+    "units": {}
+   },
+   "NetCashProvidedByUsedInInvestingActivities": {
+    "label": "Net Cash Provided by (Used in) Investing Activities",
+    "units": {}
+   },
+   "NetCashProvidedByUsedInInvestingActivitiesContinuingOperations": {
+    "label": "Net Cash Provided by (Used in) Investing Activities, Continuing Operations",
+    "units": {}
+   },
+   "NetCashProvidedByUsedInOperatingActivities": {
+    "label": "Net Cash Provided by (Used in) Operating Activities",
+    "units": {}
+   },
+   "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations": {
+    "label": "Net Cash Provided by (Used in) Operating Activities, Continuing Operations",
+    "units": {}
+   },
+   "NetIncomeLoss": {
+    "label": "Net Income (Loss) Attributable to Parent",
+    "units": {}
+   },
+   "NoncashOrPartNoncashAcquisitionValueOfLiabilitiesAssumed1": {
+    "label": "Noncash or Part Noncash Acquisition, Value of Liabilities Assumed",
+    "units": {}
+   },
+   "NumberOfOperatingSegments": {
+    "label": "Number of Operating Segments",
+    "units": {}
+   },
+   "NumberOfReportingUnits": {
+    "label": "Number of Reporting Units",
+    "units": {}
+   },
+   "OciBeforeReclassificationsNetOfTaxAttributableToParent": {
+    "label": "OCI, before Reclassifications, Net of Tax, Attributable to Parent",
+    "units": {}
+   },
+   "OperatingIncomeLoss": {
+    "label": "Operating Income (Loss)",
+    "units": {}
+   },
+   "OperatingLeaseCost": {
+    "label": "Operating Lease, Cost",
+    "units": {}
+   },
+   "OperatingLeaseLiability": {
+    "label": "Operating Lease, Liability",
+    "units": {}
+   },
+   "OperatingLeaseLiabilityCurrent": {
+    "label": "Operating Lease, Liability, Current",
+    "units": {}
+   },
+   "OperatingLeaseLiabilityNoncurrent": {
+    "label": "Operating Lease, Liability, Noncurrent",
+    "units": {}
+   },
+   "OperatingLeasePayments": {
+    "label": "Operating Lease, Payments",
+    "units": {}
+   },
+   "OperatingLeaseRightOfUseAsset": {
+    "label": "Operating Lease, Right-of-Use Asset",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsDue": {
+    "label": "Operating Leases, Future Minimum Payments Due",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsDueCurrent": {
+    "label": "Operating Leases, Future Minimum Payments Due, Next Twelve Months",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsDueInFiveYears": {
+    "label": "Operating Leases, Future Minimum Payments, Due in Five Years",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsDueInFourYears": {
+    "label": "Operating Leases, Future Minimum Payments, Due in Four Years",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsDueInThreeYears": {
+    "label": "Operating Leases, Future Minimum Payments, Due in Three Years",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsDueInTwoYears": {
+    "label": "Operating Leases, Future Minimum Payments, Due in Two Years",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsDueThereafter": {
+    "label": "Operating Leases, Future Minimum Payments, Due Thereafter",
+    "units": {}
+   },
+   "OperatingLeasesFutureMinimumPaymentsRemainderOfFiscalYear": {
+    "label": "Operating Leases, Future Minimum Payments, Remainder of Fiscal Year",
+    "units": {}
+   },
+   "OperatingLeasesRentExpenseNet": {
+    "label": "Operating Leases, Rent Expense, Net",
+    "units": {}
+   },
+   "OperatingLeaseWeightedAverageDiscountRatePercent": {
+    "label": "Operating Lease, Weighted Average Discount Rate, Percent",
+    "units": {}
+   },
+   "OriginationOfNotesReceivableFromRelatedParties": {
+    "label": "Origination of Notes Receivable from Related Parties",
+    "units": {}
+   },
+   "OtherAccruedLiabilitiesCurrent": {
+    "label": "Other Accrued Liabilities, Current",
+    "units": {}
+   },
+   "OtherAssetsNoncurrent": {
+    "label": "Other Assets, Noncurrent",
+    "units": {}
+   },
+   "OtherCommitment": {
+    "label": "Other Commitment",
+    "units": {}
+   },
+   "OtherComprehensiveIncomeAvailableforsaleSecuritiesAdjustmentNetOfTaxPortionAttributableToParent": {
+    "label": "Other Comprehensive Income (Loss), Available-for-sale Securities Adjustment, Net of Tax, Portion Attributable to Parent",
+    "units": {}
+   },
+   "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent": {
+    "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Parent",
+    "units": {}
+   },
+   "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent": {
+    "label": "Other Comprehensive Income (Loss), Net of Tax, Portion Attributable to Parent",
+    "units": {}
+   },
+   "OtherLiabilitiesNoncurrent": {
+    "label": "Other Liabilities, Noncurrent",
+    "units": {}
+   },
+   "OtherNoncashIncomeExpense": {
+    "label": "Other Noncash Income (Expense)",
+    "units": {}
+   },
+   "OtherNonoperatingIncomeExpense": {
+    "label": "Other Nonoperating Income (Expense)",
+    "units": {}
+   },
+   "OtherSalesRevenueNet": {
+    "label": "Other Revenue, Net (Deprecated 2018-01-31)",
+    "units": {}
+   },
+   "OtherSundryLiabilitiesNoncurrent": {
+    "label": "Other Sundry Liabilities, Noncurrent",
+    "units": {}
+   },
+   "OtherThanTemporaryImpairmentLossDebtSecuritiesAvailableForSale": {
+    "label": "Other-than-temporary Impairment Loss, Debt Securities, Available-for-sale",
+    "units": {}
+   },
+   "PaymentsForHedgeFinancingActivities": {
+    "label": "Payments for Hedge, Financing Activities",
+    "units": {}
+   },
+   "PaymentsForProceedsFromOtherInvestingActivities": {
+    "label": "Payments for (Proceeds from) Other Investing Activities",
+    "units": {}
+   },
+   "PaymentsForRepurchaseOfEquity": {
+    "label": "Payments for Repurchase of Equity",
+    "units": {}
+   },
+   "PaymentsForRestructuring": {
+    "label": "Payments for Restructuring",
+    "units": {}
+   },
+   "PaymentsOfDebtIssuanceCosts": {
+    "label": "Payments of Debt Issuance Costs",
+    "units": {}
+   },
+   "PaymentsOfStockIssuanceCosts": {
+    "label": "Payments of Stock Issuance Costs",
+    "units": {}
+   },
+   "PaymentsRelatedToTaxWithholdingForShareBasedCompensation": {
+    "label": "Payment, Tax Withholding, Share-based Payment Arrangement",
+    "units": {}
+   },
+   "PaymentsToAcquireBusinessesNetOfCashAcquired": {
+    "label": "Payments to Acquire Businesses, Net of Cash Acquired",
+    "units": {}
+   },
+   "PaymentsToAcquireIntangibleAssets": {
+    "label": "Payments to Acquire Intangible Assets",
+    "units": {}
+   },
+   "PaymentsToAcquireMarketableSecurities": {
+    "label": "Payments to Acquire Marketable Securities",
+    "units": {}
+   },
+   "PaymentsToAcquirePropertyPlantAndEquipment": {
+    "label": "Payments to Acquire Property, Plant, and Equipment",
+    "units": {}
+   },
+   "PrepaidExpenseAndOtherAssetsCurrent": {
+    "label": "Prepaid Expense and Other Assets, Current",
+    "units": {}
+   },
+   "ProceedsFromDebtNetOfIssuanceCosts": {
+    "label": "Proceeds from Debt, Net of Issuance Costs",
+    "units": {}
+   },
+   "ProceedsFromDivestitureOfBusinessesNetOfCashDivested": {
+    "label": "Proceeds from Divestiture of Businesses, Net of Cash Divested",
+    "units": {}
+   },
+   "ProceedsFromIssuanceInitialPublicOffering": {
+    "label": "Proceeds from Issuance Initial Public Offering",
+    "units": {}
+   },
+   "ProceedsFromIssuanceOfPreferredStockAndPreferenceStock": {
+    "label": "Proceeds from Issuance of Preferred Stock and Preference Stock",
+    "units": {}
+   },
+   "ProceedsFromLinesOfCredit": {
+    "label": "Proceeds from Lines of Credit",
+    "units": {}
+   },
+   "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities": {
+    "label": "Proceeds from Maturities, Prepayments and Calls of Debt Securities, Available-for-sale",
+    "units": {}
+   },
+   "ProceedsFromSaleAndMaturityOfMarketableSecurities": {
+    "label": "Proceeds from Sale and Maturity of Marketable Securities",
+    "units": {}
+   },
+   "ProceedsFromSaleOfPropertyPlantAndEquipment": {
+    "label": "Proceeds from Sale of Property, Plant, and Equipment",
+    "units": {}
+   },
+   "ProceedsFromStockOptionsExercised": {
+    "label": "Proceeds from Stock Options Exercised",
+    "units": {}
+   },
+   "ProfitLoss": {
+    "label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+    "units": {}
+   },
+   "PropertyPlantAndEquipmentGross": {
+    "label": "Property, Plant and Equipment, Gross",
+    "units": {}
+   },
+   "PropertyPlantAndEquipmentNet": {
+    "label": "Property, Plant and Equipment, Net",
+    "units": {}
+   },
+   "ReclassificationFromAociCurrentPeriodNetOfTaxAttributableToParent": {
+    "label": "Reclassification from AOCI, Current Period, Net of Tax, Attributable to Parent",
+    "units": {}
+   },
+   "RepaymentOfNotesReceivableFromRelatedParties": {
+    "label": "Repayment of Notes Receivable from Related Parties",
+    "units": {}
+   },
+   "RepaymentsOfLinesOfCredit": {
+    "label": "Repayments of Lines of Credit",
+    "units": {}
+   },
+   "ResearchAndDevelopmentExpense": {
+    "label": "Research and Development Expense",
+    "units": {}
+   },
+   "RestrictedCash": {
+    "label": "Restricted Cash",
+    "units": {}
+   },
+   "RestructuringReserve": {
+    "label": "Restructuring Reserve",
+    "units": {}
+   },
+   "RetainedEarningsAccumulatedDeficit": {
+    "label": "Retained Earnings (Accumulated Deficit)",
+    "units": {}
+   },
+   "RevenueFromContractWithCustomerExcludingAssessedTax": {
+    "label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+    "units": {}
+   },
+   "Revenues": {
+    "label": "Revenues",
+    "units": {}
+   },
+   "RightOfUseAssetObtainedInExchangeForOperatingLeaseLiability": {
+    "label": "Right-of-Use Asset Obtained in Exchange for Operating Lease Liability",
+    "units": {}
+   },
+   "SellingAndMarketingExpense": {
+    "label": "Selling and Marketing Expense",
+    "units": {}
+   },
+   "ShareBasedCompensation": {
+    "label": "Share-based Payment Arrangement, Noncash Expense",
+    "units": {}
+   },
+   "ShareBasedCompensationArrangementByShareBasedPaymentAwardFairValueAssumptionsExercisePrice": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Fair Value Assumptions, Exercise Price",
+    "units": {}
+   },
+   "ShareBasedCompensationArrangementByShareBasedPaymentAwardFairValueAssumptionsExpectedDividendRate": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Fair Value Assumptions, Expected Dividend Rate",
+    "units": {}
+   },
+   "ShareBasedCompensationArrangementByShareBasedPaymentAwardFairValueAssumptionsExpectedVolatilityRate": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Fair Value Assumptions, Expected Volatility Rate",
+    "units": {}
+   },
+   "ShareBasedCompensationArrangementByShareBasedPaymentAwardFairValueAssumptionsRiskFreeInterestRate": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Fair Value Assumptions, Risk Free Interest Rate",
+    "units": {}
+   },
+   "ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsGrantsInPeriodGross": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Options, Grants in Period, Gross",
+    "units": {}
+   },
+   "ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsGrantsInPeriodWeightedAverageGrantDateFairValue": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Options, Grants in Period, Weighted Average Grant Date Fair Value",
+    "units": {}
+   },
+   "ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsVestedAndExpectedToVestExercisableAggregateIntrinsicValue": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Options, Vested and Expected to Vest, Exercisable, Aggregate Intrinsic Value",
+    "units": {}
+   },
+   "SharebasedCompensationArrangementBySharebasedPaymentAwardOptionsVestedInPeriodFairValue1": {
+    "label": "Share-based Compensation Arrangement by Share-based Payment Award, Options, Vested in Period, Fair Value",
+    "units": {}
+   },
+   "SharesOutstanding": {
+    "label": "Shares, Outstanding",
+    "units": {}
+   },
+   "SignificantChangeInUnrecognizedTaxBenefitsIsReasonablyPossibleAmountOfUnrecordedBenefit": {
+    "label": "Significant Change in Unrecognized Tax Benefits is Reasonably Possible, Amount of Unrecorded Benefit",
+    "units": {}
+   },
+   "StockholdersEquity": {
+    "label": "Stockholders' Equity Attributable to Parent",
+    "units": {}
+   },
+   "SubleaseIncome": {
+    "label": "Sublease Income",
+    "units": {}
+   },
+   "TaxesPayableCurrent": {
+    "label": "Taxes Payable, Current",
+    "units": {}
+   },
+   "UnrealizedGainLossOnInvestments": {
+    "label": "Unrealized Gain (Loss) on Investments",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefits": {
+    "label": "Unrecognized Tax Benefits",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsDecreasesResultingFromPriorPeriodTaxPositions": {
+    "label": "Unrecognized Tax Benefits, Decrease Resulting from Prior Period Tax Positions",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsIncomeTaxPenaltiesAndInterestAccrued": {
+    "label": "Unrecognized Tax Benefits, Income Tax Penalties and Interest Accrued",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsIncreasesResultingFromCurrentPeriodTaxPositions": {
+    "label": "Unrecognized Tax Benefits, Increase Resulting from Current Period Tax Positions",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsIncreasesResultingFromForeignCurrencyTranslation": {
+    "label": "Unrecognized Tax Benefits, Increase Resulting from Foreign Currency Translation",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsIncreasesResultingFromPriorPeriodTaxPositions": {
+    "label": "Unrecognized Tax Benefits, Increase Resulting from Prior Period Tax Positions",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsReductionsResultingFromLapseOfApplicableStatuteOfLimitations": {
+    "label": "Unrecognized Tax Benefits, Reduction Resulting from Lapse of Applicable Statute of Limitations",
+    "units": {}
+   },
+   "WeightedAverageNumberOfDilutedSharesOutstanding": {
+    "label": "Weighted Average Number of Shares Outstanding, Diluted",
+    "units": {}
+   },
+   "WeightedAverageNumberOfSharesOutstandingBasic": {
+    "label": "Weighted Average Number of Shares Outstanding, Basic",
+    "units": {}
+   },
+   "ContractWithCustomerLiabilityCurrent": {
+    "label": "Contract with Customer, Liability, Current",
+    "units": {}
+   },
+   "DebtSecuritiesAvailableForSaleChangeInPresentValueExpenseReversal": {
+    "label": "Debt Securities, Available-for-sale, Change in Present Value, Expense (Reversal)",
+    "units": {}
+   },
+   "DeferredTaxLiabilitiesInvestments": {
+    "label": "Deferred Tax Liabilities, Investments",
+    "units": {}
+   },
+   "EquitySecuritiesFvNi": {
+    "label": "Equity Securities, FV-NI",
+    "units": {}
+   },
+   "AmortizationOfFinancingCosts": {
+    "label": "Amortization of Debt Issuance Costs",
+    "units": {}
+   },
+   "EquitySecuritiesFvNiUnrealizedGainLoss": {
+    "label": "Equity Securities, FV-NI, Unrealized Gain (Loss)",
+    "units": {}
+   },
+   "GainLossOnInvestments": {
+    "label": "Gain (Loss) on Investments",
+    "units": {}
+   },
+   "PaymentsForRepurchaseOfCommonStock": {
+    "label": "Payments for Repurchase of Common Stock",
+    "units": {}
+   },
+   "RestructuringAndRelatedCostNumberOfPositionsEliminatedPeriodPercent": {
+    "label": "Restructuring and Related Cost, Number of Positions Eliminated, Period Percent",
+    "units": {}
+   },
+   "RestructuringCharges": {
+    "label": "Restructuring Charges",
+    "units": {}
+   },
+   "CapitalExpendituresIncurredButNotYetPaid": {
+    "label": "Capital Expenditures Incurred but Not yet Paid",
+    "units": {}
+   },
+   "CommonStockSharesOutstanding": {
+    "label": "Common Stock, Shares, Outstanding",
+    "units": {}
+   },
+   "CurrentFederalTaxExpenseBenefit": {
+    "label": "Current Federal Tax Expense (Benefit)",
+    "units": {}
+   },
+   "DebtInstrumentFaceAmount": {
+    "label": "Debt Instrument, Face Amount",
+    "units": {}
+   },
+   "DebtInstrumentUnamortizedDiscountPremiumAndDebtIssuanceCostsNet": {
+    "label": "Debt Instrument, Unamortized Discount (Premium) and Debt Issuance Costs, Net",
+    "units": {}
+   },
+   "DebtSecuritiesAvailableForSaleAllowanceForCreditLoss": {
+    "label": "Debt Securities, Available-for-sale, Allowance for Credit Loss",
+    "units": {}
+   },
+   "DeferredTaxAssetsInProcessResearchAndDevelopment": {
+    "label": "Deferred Tax Assets, in Process Research and Development",
+    "units": {}
+   },
+   "LongTermDebt": {
+    "label": "Long-term Debt",
+    "units": {}
+   },
+   "RealizedInvestmentGainsLosses": {
+    "label": "Realized Investment Gains (Losses)",
+    "units": {}
+   },
+   "SharePrice": {
+    "label": "Share Price",
+    "units": {}
+   },
+   "StockRepurchasedAndRetiredDuringPeriodValue": {
+    "label": "Stock Repurchased and Retired During Period, Value",
+    "units": {}
+   },
+   "TreasuryStockCommonShares": {
+    "label": "Treasury Stock, Common, Shares",
+    "units": {}
+   },
+   "TreasuryStockCommonValue": {
+    "label": "Treasury Stock, Common, Value",
+    "units": {}
+   },
+   "EquitySecuritiesFvNiGainLoss": {
+    "label": "Equity Securities, FV-NI, Gain (Loss)",
+    "units": {}
+   },
+   "EquitySecuritiesFvNiRealizedGainLoss": {
+    "label": "Equity Securities, FV-NI, Realized Gain (Loss)",
+    "units": {}
+   },
+   "RestructuringAndRelatedCostExpectedCost1": {
+    "label": "Restructuring and Related Cost, Expected Cost",
+    "units": {}
+   },
+   "EquitySecuritiesWithoutReadilyDeterminableFairValueAmount": {
+    "label": "Equity Securities without Readily Determinable Fair Value, Amount",
+    "units": {}
+   },
+   "EquitySecuritiesWithoutReadilyDeterminableFairValueUpwardPriceAdjustmentCumulativeAmount": {
+    "label": "Equity Securities without Readily Determinable Fair Value, Upward Price Adjustment, Cumulative Amount",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsDecreasesResultingFromSettlementsWithTaxingAuthorities": {
+    "label": "Unrecognized Tax Benefits, Decrease Resulting from Settlements with Taxing Authorities",
+    "units": {}
+   },
+   "IncreaseDecreaseInOperatingLeaseLiability": {
+    "label": null,
+    "units": {}
+   },
+   "NoncurrentAssets": {
+    "label": "Long-Lived Assets",
+    "units": {}
+   },
+   "RepaymentsOfConvertibleDebt": {
+    "label": "Repayments of Convertible Debt",
+    "units": {}
+   },
+   "ConvertibleDebtCurrent": {
+    "label": "Convertible Debt, Current",
+    "units": {}
+   },
+   "DebtInstrumentRepurchaseAmount": {
+    "label": "Debt Instrument, Repurchase Amount",
+    "units": {}
+   },
+   "InterestExpenseNonoperating": {
+    "label": null,
+    "units": {}
+   },
+   "ProceedsFromConvertibleDebt": {
+    "label": "Proceeds from Convertible Debt",
+    "units": {}
+   },
+   "ProceedsFromPaymentsForOtherFinancingActivities": {
+    "label": "Proceeds from (Payments for) Other Financing Activities",
+    "units": {}
+   },
+   "UnrecordedUnconditionalPurchaseObligationBalanceSheetAmount": {
+    "label": "Unrecorded Unconditional Purchase Obligation",
+    "units": {}
+   },
+   "CashAndCashEquivalentsFairValueDisclosure": {
+    "label": "Cash and Cash Equivalents, Fair Value Disclosure",
+    "units": {}
+   },
+   "StockRepurchaseProgramRemainingAuthorizedRepurchaseAmount1": {
+    "label": "Stock Repurchase Program, Remaining Authorized Repurchase Amount",
+    "units": {}
+   },
+   "DebtInstrumentUnamortizedDiscountPremiumNet": {
+    "label": "Debt Instrument, Unamortized Discount (Premium), Net",
+    "units": {}
+   },
+   "GainsLossesOnExtinguishmentOfDebt": {
+    "label": "Gain (Loss) on Extinguishment of Debt",
+    "units": {}
+   },
+   "LongTermDebtNoncurrent": {
+    "label": "Long-term Debt, Excluding Current Maturities",
+    "units": {}
+   },
+   "ShortTermBorrowings": {
+    "label": "Short-term Debt",
+    "units": {}
+   },
+   "UnamortizedDebtIssuanceExpense": {
+    "label": "Unamortized Debt Issuance Expense",
+    "units": {}
+   },
+   "AvailableForSaleDebtSecuritiesAccumulatedGrossUnrealizedGainBeforeTax": {
+    "label": "Debt Securities, Available-for-sale, Accumulated Gross Unrealized Gain, before Tax",
+    "units": {}
+   },
+   "AvailableForSaleDebtSecuritiesAccumulatedGrossUnrealizedLossBeforeTax": {
+    "label": "Debt Securities, Available-for-sale, Accumulated Gross Unrealized Loss, before Tax",
+    "units": {}
+   },
+   "AvailableForSaleDebtSecuritiesAmortizedCostBasis": {
+    "label": "Debt Securities, Available-for-sale, Amortized Cost",
+    "units": {}
+   },
+   "CashEquivalentsAtCarryingValue": {
+    "label": "Cash Equivalents, at Carrying Value",
+    "units": {}
+   },
+   "DeferredTaxLiabilitiesUnrealizedGainsOnTradingSecurities": {
+    "label": "Deferred Tax Liabilities, Unrealized Gains on Trading Securities",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationNondeductibleExpenseOther": {
+    "label": "Effective Income Tax Rate Reconciliation, Nondeductible Expense, Other, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationNondeductibleExpenseShareBasedCompensationCost": {
+    "label": "Effective Income Tax Rate Reconciliation, Nondeductible Expense, Share-based Payment Arrangement, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationTaxContingencies": {
+    "label": "Effective Income Tax Rate Reconciliation, Tax Contingency, Percent",
+    "units": {}
+   },
+   "EffectiveIncomeTaxRateReconciliationTaxCreditsResearch": {
+    "label": "Effective Income Tax Rate Reconciliation, Tax Credit, Research, Percent",
+    "units": {}
+   },
+   "IncomeTaxPaidFederalAfterRefundReceived": {
+    "label": null,
+    "units": {}
+   },
+   "IncomeTaxPaidForeignAfterRefundReceived": {
+    "label": null,
+    "units": {}
+   },
+   "IncomeTaxPaidStateAndLocalAfterRefundReceived": {
+    "label": null,
+    "units": {}
+   },
+   "IncomeTaxReconciliationChangeInDeferredTaxAssetsValuationAllowance": {
+    "label": "Effective Income Tax Rate Reconciliation, Change in Deferred Tax Assets Valuation Allowance, Amount",
+    "units": {}
+   },
+   "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate": {
+    "label": "Effective Income Tax Rate Reconciliation at Federal Statutory Income Tax Rate, Amount",
+    "units": {}
+   },
+   "IncomeTaxReconciliationNondeductibleExpenseOther": {
+    "label": "Effective Income Tax Rate Reconciliation, Nondeductible Expense, Other, Amount",
+    "units": {}
+   },
+   "IncomeTaxReconciliationNondeductibleExpenseShareBasedCompensationCost": {
+    "label": "Effective Income Tax Rate Reconciliation, Nondeductible Expense, Share-based Payment Arrangement, Amount",
+    "units": {}
+   },
+   "IncomeTaxReconciliationStateAndLocalIncomeTaxes": {
+    "label": "Effective Income Tax Rate Reconciliation, State and Local Income Taxes, Amount",
+    "units": {}
+   },
+   "IncomeTaxReconciliationTaxContingencies": {
+    "label": "Effective Income Tax Rate Reconciliation, Tax Contingency, Amount",
+    "units": {}
+   },
+   "IncomeTaxReconciliationTaxCreditsResearch": {
+    "label": "Effective Income Tax Rate Reconciliation, Tax Credit, Research, Amount",
+    "units": {}
+   },
+   "NumberOfReportableSegments": {
+    "label": "Number of Reportable Segments",
+    "units": {}
+   },
+   "RevenueRemainingPerformanceObligation": {
+    "label": "Revenue, Remaining Performance Obligation, Amount",
+    "units": {}
+   },
+   "UnrecognizedTaxBenefitsPeriodIncreaseDecrease": {
+    "label": "Unrecognized Tax Benefits, Period Increase (Decrease)",
+    "units": {}
+   }
+  }
+ }
+}

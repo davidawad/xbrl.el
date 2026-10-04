@@ -236,6 +236,144 @@
      (equal
       (xbrl--get "https://example.invalid/x") '(:a (1 2) :b nil)))))
 
+;;; Real SEC data: Snap Inc (CIK 1564408), a Form 10-K filer under us-gaap.
+;;; Payloads in test/fixtures/ are trimmed real SEC responses; see its README.
+
+(defun xbrl-test--fixture (name)
+  "Parse test/fixtures/NAME the same way `xbrl--get' parses SEC JSON."
+  (with-temp-buffer
+    (insert-file-contents
+     (expand-file-name (concat "fixtures/" name)
+                       xbrl-test--directory))
+    (goto-char (point-min))
+    (json-parse-buffer
+     :object-type 'plist
+     :array-type 'list
+     :null-object nil
+     :false-object nil)))
+
+(defmacro xbrl-test--with-snap (&rest body)
+  "Run BODY with `xbrl--get' serving the Snap fixtures."
+  (declare (indent 0))
+  `(xbrl-test--with-api
+       `(("company_tickers" .
+          ,(xbrl-test--fixture "company-tickers-snap.json"))
+         ("companyfacts" .
+          ,(xbrl-test--fixture "snap-companyfacts-names.json"))
+         ("us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax\\.json"
+          .
+          ,(xbrl-test--fixture "snap-us-gaap-revenue.json"))
+         ("us-gaap/NetIncomeLoss\\.json"
+          .
+          ,(xbrl-test--fixture "snap-us-gaap-netincomeloss.json"))
+         ("frames/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/USD/CY2024"
+          .
+          ,(xbrl-test--fixture
+            "frame-us-gaap-revenue-usd-cy2024.json")))
+     ,@body))
+
+(defconst xbrl-test--snap-revenue-concept
+  "RevenueFromContractWithCustomerExcludingAssessedTax")
+
+(defun xbrl-test--by-year (facts)
+  "Alist of (YEAR . VAL) for annual FACTS."
+  (mapcar
+   (lambda (f)
+     (cons
+      (string-to-number
+       (substring (plist-get f :end) 0 4))
+      (plist-get f :val)))
+   facts))
+
+(ert-deftest xbrl-snap-annual-revenue ()
+  (xbrl-test--with-snap
+    (let ((r
+           (xbrl-test--by-year
+            (xbrl-annual "SNAP" xbrl-test--snap-revenue-concept))))
+      (should (= (length r) 10))
+      (should (= (cdr (assq 2016 r)) 404482000))
+      (should (= (cdr (assq 2021 r)) 4117048000))
+      (should (= (cdr (assq 2024 r)) 5361398000))
+      (should (= (cdr (assq 2025 r)) 5931447000)))))
+
+(ert-deftest xbrl-snap-annual-keeps-latest-filing ()
+  (xbrl-test--with-snap
+    (let ((f
+           (car
+            (last
+             (xbrl-annual "SNAP" xbrl-test--snap-revenue-concept)))))
+      (should (equal (plist-get f :unit) "USD"))
+      (should (equal (plist-get f :form) "10-K"))
+      (should (equal (plist-get f :end) "2025-12-31"))
+      (should (equal (plist-get f :accn) "0001564408-26-000013")))))
+
+(ert-deftest xbrl-snap-net-margin-by-year ()
+  "Compose two concepts: net income / revenue per fiscal year."
+  (xbrl-test--with-snap
+    (let* ((rev
+            (xbrl-test--by-year
+             (xbrl-annual "SNAP" xbrl-test--snap-revenue-concept)))
+           (ni
+            (xbrl-test--by-year (xbrl-annual "SNAP" "NetIncomeLoss")))
+           (margin
+            (mapcar
+             (lambda (y)
+               (cons
+                y
+                (/ (round
+                    (* 1000.0
+                       (/ (float (cdr (assq y ni)))
+                          (cdr (assq y rev)))))
+                   10.0)))
+             '(2021 2022 2023 2024 2025))))
+      (should (= (cdr (assq 2025 ni)) -460489000))
+      (should
+       (equal
+        margin
+        '((2021 . -11.9)
+          (2022 . -31.1)
+          (2023 . -28.7)
+          (2024 . -13.0)
+          (2025 . -7.8)))))))
+
+(ert-deftest xbrl-snap-concept-names ()
+  (xbrl-test--with-snap
+    (let ((names (xbrl-concept-names "SNAP")))
+      (should (> (length names) 300))
+      (should (member "NetIncomeLoss" names))
+      (should (member xbrl-test--snap-revenue-concept names))
+      (should (equal names (sort (copy-sequence names) #'string<))))))
+
+(ert-deftest xbrl-frame-real-revenue-cy2024 ()
+  (xbrl-test--with-snap
+    (let* ((rows
+            (xbrl-frame
+             "us-gaap"
+             xbrl-test--snap-revenue-concept
+             "USD"
+             "CY2024"))
+           (rev
+            (lambda (cik)
+              (plist-get
+               (seq-find (lambda (r) (= (plist-get r :cik) cik)) rows)
+               :val))))
+      (should (= (length rows) 5))
+      (should (= (funcall rev 1564408) 5361398000))
+      (should (= (funcall rev 1506293) 3646166000))
+      (should (= (funcall rev 1713445) 1300205000)))))
+
+(ert-deftest xbrl-show-facts-snap-table ()
+  (xbrl-test--with-snap
+    (cl-letf (((symbol-function 'completing-read)
+               (lambda (&rest _) "NetIncomeLoss"))
+              ((symbol-function 'pop-to-buffer) #'ignore))
+      (xbrl-show-facts "SNAP")
+      (with-current-buffer "*xbrl*"
+        (should (string-match-p "-460,489,000" (buffer-string)))
+        (should
+         (string-match-p "0001564408-26-000013" (buffer-string))))
+      (kill-buffer "*xbrl*"))))
+
 (ert-deftest xbrl-live-annual ()
   :tags
   '(network)
